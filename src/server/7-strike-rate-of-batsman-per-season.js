@@ -2,7 +2,7 @@ import deliveries from '../data/deliveries.json' assert { type: 'json'};
 
 import matches from '../data/matches.json' assert { type: 'json'};
 
-
+import fs from 'fs';
 
 
 function get_matches_idx() {
@@ -85,5 +85,9 @@ function batsman_strike_rate() {
     
 }
 
-console.log(batsman_strike_rate());
+// console.log(batsman_strike_rate());
+
+const strike_rate = batsman_strike_rate();
  
+
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/7_strike_rate_of_batsman_per_season.json', JSON.stringify(strike_rate, null, 2));
