@@ -22,7 +22,7 @@ function get_2016_Match_ID() {
 
 // console.log(get_2016_Match_ID());
 
-function extras_conceded_per_team_per_year_2016(params) {
+function extras_conceded_per_team_per_year_2016() {
     let extras_2016 = {}
 
     const match_IDX = new Set(get_2016_Match_ID());
