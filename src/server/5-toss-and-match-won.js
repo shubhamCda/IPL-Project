@@ -1,27 +1,32 @@
 import deliveries from '../data/deliveries.json' assert {type: 'json'};
-
 import matches from '../data/matches.json' assert {type: 'json'};
+import fs from 'fs';
 
 
-
-function matchAndTossWinner() {
-    let resultObj = {};
+function match_and_toss_winner() {
+    let result_obj = {};
 
     for (let index = 0; index < matches.length; index++) {
         
         const { toss_winner, winner} = matches[index];
 
         if (toss_winner === winner) {
-            if (resultObj[toss_winner]) {
+            if (result_obj[toss_winner]) {
                 
-                resultObj[toss_winner] += 1;
+                result_obj[toss_winner] += 1;
             }else{
-                resultObj[toss_winner] = 1;
+                result_obj[toss_winner] = 1;
             }
         }      
         
     }
-    return resultObj;
+    return result_obj;
 }
 
-console.log(matchAndTossWinner());
+// console.log(match_and_toss_winner());
+
+const winners = match_and_toss_winner();
+
+
+
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/5_toss_and_match_won.json', JSON.stringify(winners, null, 2));
