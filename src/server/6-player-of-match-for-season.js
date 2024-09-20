@@ -1,10 +1,10 @@
 import deliveries from '../data/deliveries.json' assert { type: 'json'};
-
+import fs from 'fs';
 import matches from '../data/matches.json' assert { type: 'json'};
 
 
 
-function playerOfMatch() {
+function player_Of_Match_for_season() {
     let playerOfMatch = {};
 
     for (let index = 0; index < matches.length; index++) {
@@ -52,4 +52,9 @@ function playerOfMatch() {
 
 }
 
-console.log(playerOfMatch());
+// console.log(playerOfMatch());
+
+const man_of_the_match = player_Of_Match_for_season();
+
+
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/6_player_of_match_for_season.json', JSON.stringify(man_of_the_match, null, 2));
