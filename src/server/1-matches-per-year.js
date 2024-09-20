@@ -19,6 +19,7 @@ function matchesPerYear() {
     return matchesCount;
 }
 
-console.log(matchesPerYear());
+const matches_per_season_count = matchesPerYear();
 
 
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/1_matches_per_year.json', JSON.stringify(matches_per_season_count, null, 2));
