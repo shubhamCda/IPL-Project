@@ -22,6 +22,7 @@ function matches_won_per_team_per_year() {
             
         }else{
             winner_Count[seasons] = {};
+            winner_Count[seasons][winners] = 1;
         }
     }
     // console.log(winner_Count);
