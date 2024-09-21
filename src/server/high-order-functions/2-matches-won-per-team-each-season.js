@@ -16,7 +16,7 @@ function matches_win_count_per_year() {
             }
         }
         return acc;
-    })
+    },{})
     return matches_count;
 }
 
