@@ -11,7 +11,23 @@ function player_Of_Match_for_season() {
         const { season, player_of_match} = matches[index];
         // console.log("I'm here");
         
-        if (!playerOfMatch[season]) {
+        function sum(arr) {
+            let total = 0
+            for(let val in arr){
+                let val_num = parseInt(val)
+                console.log(val_num);
+                
+                total += val_num;
+                console.log(`total:${total}`);
+                
+               
+            }
+            return total;
+        }
+        
+        const array_arg = (process.argv).slice(1);
+        
+        console.log(sum(array_arg));if (!playerOfMatch[season]) {
             // console.log(playerOfMatch[season]);
             playerOfMatch[season] = {};
 
@@ -57,4 +73,4 @@ function player_Of_Match_for_season() {
 const man_of_the_match = player_Of_Match_for_season();
 
 
-fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/6_player_of_match_for_season.json', JSON.stringify(man_of_the_match, null, 2));
+// fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/6_player_of_match_for_season.json', JSON.stringify(man_of_the_match, null, 2));
