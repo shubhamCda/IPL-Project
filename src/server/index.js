@@ -5,6 +5,7 @@ import { matches_won_per_team_per_year } from './2-matches-won-per-team-per-year
 import { extras_conceded_per_team_per_year_2016 } from './3-extra-runs-conceded-per-team-year-2016.js';
 import { top_10_economical_bowlers } from './4-top-10-economical-bowlers-2015.js';
 import { match_and_toss_winner } from './5-toss-and-match-won.js';
+import { player_of_match_for_season } from './6-player-of-match-for-season.js';
 
 //1. To calculate number of matches played per year for all the years in IPL.
 const matches_per_season_count = matches_per_year();
@@ -31,7 +32,12 @@ const top_economical_bowlers = top_10_economical_bowlers();
 // fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/4-top-10-economical-bowlers-2015.json', JSON.stringify(top_economical_bowlers, null, 2));
 
 
-// Find the number of times each team won the toss and also won the match
+//5. Find the number of times each team won the toss and also won the match
 const winners = match_and_toss_winner();
 
-fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/5_toss_and_match_won.json', JSON.stringify(winners, null, 2));
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/5-toss-and-match-won.json', JSON.stringify(winners, null, 2));
+
+//6. Find a player who has won the highest number of Player of the Match awards for each season
+const man_of_the_match = player_of_match_for_season();
+
+// fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/6-player-of-match-for-season.json', JSON.stringify(man_of_the_match, null, 2));
