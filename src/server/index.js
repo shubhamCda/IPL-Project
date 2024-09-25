@@ -6,6 +6,7 @@ import { extras_conceded_per_team_per_year_2016 } from './3-extra-runs-conceded-
 import { top_10_economical_bowlers } from './4-top-10-economical-bowlers-2015.js';
 import { match_and_toss_winner } from './5-toss-and-match-won.js';
 import { player_of_match_for_season } from './6-player-of-match-for-season.js';
+import { batsman_strike_rate } from './7-strike-rate-of-batsman-per-season.js';
 
 //1. To calculate number of matches played per year for all the years in IPL.
 const matches_per_season_count = matches_per_year();
@@ -35,9 +36,15 @@ const top_economical_bowlers = top_10_economical_bowlers();
 //5. Find the number of times each team won the toss and also won the match
 const winners = match_and_toss_winner();
 
-fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/5-toss-and-match-won.json', JSON.stringify(winners, null, 2));
+// fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/5-toss-and-match-won.json', JSON.stringify(winners, null, 2));
 
 //6. Find a player who has won the highest number of Player of the Match awards for each season
 const man_of_the_match = player_of_match_for_season();
 
 // fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/6-player-of-match-for-season.json', JSON.stringify(man_of_the_match, null, 2));
+
+
+//7. Find the strike rate of a batsman for each season
+const strike_rate = batsman_strike_rate();
+ 
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/7-strike-rate-of-batsman-per-season.json', JSON.stringify(strike_rate, null, 2));
