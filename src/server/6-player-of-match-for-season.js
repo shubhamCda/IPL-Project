@@ -1,76 +1,56 @@
-import deliveries from '../data/deliveries.json' assert { type: 'json'};
-import fs from 'fs';
 import matches from '../data/matches.json' assert { type: 'json'};
 
 
+// to get a player who has won the highest number of Player of the Match awards for each season
+export function player_of_match_for_season() {
+    let player_of_match = {};
 
-function player_Of_Match_for_season() {
-    let playerOfMatch = {};
-
-    for (let index = 0; index < matches.length; index++) {
-        const { season, player_of_match} = matches[index];
-        // console.log("I'm here");
-        
-        function sum(arr) {
-            let total = 0
-            for(let val in arr){
-                let val_num = parseInt(val)
-                console.log(val_num);
+    try {
+        for (let index = 0; index < matches.length; index++) {
+            const { season, player_of_match} = matches[index];
+                    
+            if (!player_of_match[season]) {
                 
-                total += val_num;
-                console.log(`total:${total}`);
-                
-               
-            }
-            return total;
-        }
-        
-        const array_arg = (process.argv).slice(1);
-        
-        console.log(sum(array_arg));if (!playerOfMatch[season]) {
-            // console.log(playerOfMatch[season]);
-            playerOfMatch[season] = {};
-
-            playerOfMatch[season][player_of_match] = 1;
-                              
-        
-        }else{
-
-            if (playerOfMatch[season][player_of_match]) {
-                playerOfMatch[season][player_of_match] += 1;
-            }else{
-                playerOfMatch[season][player_of_match] = 1;
-            }
-        }
-
-        
-        
-    }
-    const seasonKeys =  Object.keys(playerOfMatch);
-    // console.log(seasonKeys);
+                player_of_match[season] = {};
     
-    for (let index = 0; index < seasonKeys.length; index++) {
-        let max_value = 0;
-        let manOfSeason = "";
-        for (let key in playerOfMatch[seasonKeys[index]]) {
-            if (max_value < playerOfMatch[seasonKeys[index]][key]) {
-                max_value = playerOfMatch[seasonKeys[index]][key];
-                manOfSeason = key;
+                player_of_match[season][player_of_match] = 1;
+                                  
+            
+            }else{
+    
+                if (player_of_match[season][player_of_match]) {
+                    player_of_match[season][player_of_match] += 1;
+                }else{
+                    player_of_match[season][player_of_match] = 1;
+                }
             }
+    
+            
             
         }
-        playerOfMatch[seasonKeys[index]] = manOfSeason;
+        const seasonKeys =  Object.keys(player_of_match);
         
         
+        for (let index = 0; index < seasonKeys.length; index++) {
+            let max_value = 0;
+            let man_of_season = "";
+            for (let key in player_of_match[seasonKeys[index]]) {
+                if (max_value < player_of_match[seasonKeys[index]][key]) {
+                    max_value = player_of_match[seasonKeys[index]][key];
+                    man_of_season = key;
+                }
+                
+            }
+            player_of_match[seasonKeys[index]] = man_of_season;
+            
+            
+        }
+        
+        return player_of_match;
+    } catch (error) {
+        console.error("Error while processing Find a player who has won the highest number of Player of the Match awards for each season : ", error);
+        return {};
     }
-    
-    return playerOfMatch;
 
 }
 
-// console.log(playerOfMatch());
-
-const man_of_the_match = player_Of_Match_for_season();
-
-
-// fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/6_player_of_match_for_season.json', JSON.stringify(man_of_the_match, null, 2));
