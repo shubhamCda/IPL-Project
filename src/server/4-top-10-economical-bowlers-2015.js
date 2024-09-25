@@ -1,5 +1,4 @@
 import deliveries from '../data/deliveries.json' assert { type: 'json'};
-import fs from 'fs';
 import matches from '../data/matches.json' assert { type: 'json'};
 
 
