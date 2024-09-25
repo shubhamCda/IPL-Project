@@ -30,7 +30,7 @@ export function matches_won_per_team_per_year() {
         return winner_count;
     }
     catch (error){
-        console.error("Error while processing matches per year data: ", error);
+        console.error("Error while processing number of matches won per team per year in IPL: ", error);
         return {};
     }
 }

@@ -35,9 +35,14 @@ const bowlers_runs_and_balls = deliveries.reduce((data, { match_id, bowler, wide
 
 // console.log(bowlers_runs_and_balls);
 
-const top_10_economy_bowlers = Object.entries(bowlers_runs_and_balls).sort(([, a], [, b]) => {
-    return a.economy - b.economy;
-}).slice(0, 10).map(([bowler, stat]) => ({ bowler, economy: stat.economy }));
+const top_10_economy_bowlers = Object.entries(bowlers_runs_and_balls)
+                                .sort(([, a], [, b]) => {
+                                        return a.economy - b.economy;
+                                })
+                                .slice(0, 10)
+                                .map(([bowler, stat]) => ({ 
+                                    bowler, economy: stat.economy 
+                                }));
 
 // console.log(top_10_economy_bowlers);
 

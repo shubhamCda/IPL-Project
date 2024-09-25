@@ -102,7 +102,7 @@ export function top_10_economical_bowlers() {
         return result;
     } catch (error) {
         console.error("Error while processing top 10 economical bowlers in the year 2015 : ", error);
-        return {};
+        return [];
     }
 
     

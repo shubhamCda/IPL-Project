@@ -12,7 +12,7 @@ const player_of_match_count = matches.reduce((data, { season, player_of_match })
 
 // console.log(player_of_match_count);
 
-const player_of_match_per_season = Object.entries(player_of_match_count).reduce((data, [ season, player_data ]) =>{
+const top_player_of_match_per_season = Object.entries(player_of_match_count).reduce((data, [ season, player_data ]) =>{
     data[season] = {};
 
     const player_name = Object.keys(player_data).reduce((max_title, player) =>
@@ -22,5 +22,5 @@ const player_of_match_per_season = Object.entries(player_of_match_count).reduce(
     return data;
 }, {});
 
-console.log(player_of_match_per_season);
+console.log(top_player_of_match_per_season);
 
