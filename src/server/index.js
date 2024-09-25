@@ -8,6 +8,7 @@ import { match_and_toss_winner } from './5-toss-and-match-won.js';
 import { player_of_match_for_season } from './6-player-of-match-for-season.js';
 import { batsman_strike_rate } from './7-strike-rate-of-batsman-per-season.js';
 import { max_times_player_dismissed } from './8-highest-number-player-dismissed.js';
+import { super_over_economy } from './9-economy-of-bowlers-in-super-over.js';
 
 //1. To calculate number of matches played per year for all the years in IPL.
 const matches_per_season_count = matches_per_year();
@@ -54,4 +55,10 @@ const strike_rate = batsman_strike_rate();
 //8. Find the highest number of times one player has been dismissed by another player
 const player_out_max_times = max_times_player_dismissed();
 
-fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/8-highest-number-player-dismissed.json', JSON.stringify(player_out_max_times, null, 2));
+// fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/8-highest-number-player-dismissed.json', JSON.stringify(player_out_max_times, null, 2));
+
+
+
+const economy_rate_of_super_over = super_over_economy();
+
+fs.writeFileSync('/home/shubham/Desktop/Projetc/IPL/src/public/output/9-economy-of-bowlers-in-super-over.json', JSON.stringify(economy_rate_of_super_over, null, 2));
